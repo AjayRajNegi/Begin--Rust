@@ -1,19 +1,19 @@
-fn find_first_a(s:String)->Option<i32>{
-    for(index, character) in s.chars().enumerate(){
-        if character == 'a'{
-            return Some(index as i32)
-    }
-
-}
-return None;
-}
-
 fn main(){
-    let my_string = String::from("DSouza");
-    let res = find_first_a(my_string);
+    let mut vec = Vec::new();
+    vec.push(1);
+    vec.push(2);
 
-    match res{
-        Some(index) => println!("The letter 'a' is found at index: {}", index),
-        None=>println!("The letter 'a' is not found in the string."),
+    println!("{:?}",even_filter(vec));
+}
+
+fn even_filter(vec: Vec<i32>)-> Vec<i32>{
+    let mut new_vec = Vec::new();
+    for val in vec{
+        if val %2 == 0 {
+            new_vec.push(val);
+        }
     }
+
+    return new_vec;
+
 }
