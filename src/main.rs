@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 fn group_values_by_key(vec: Vec<(String, i32)>)-> HashMap<String, i32>{
-    let mut hm = HashMap::new();
+    let  mut hm = HashMap::new();
 
     for (key, value) in vec {
         hm.insert(key, value);
