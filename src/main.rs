@@ -1,18 +1,18 @@
-// in src/main.rs
+use std::collections::HashMap;
 
-#[unsafe(no_mangle)]
-pub extern "C" fn _start() -> ! {
-    println!("Hello World{}", "!");
+fn group_values_by_key(vec: Vec<(String, i32)>)-> HashMap<String, i32>{
+    let  mut hm = HashMap::new();
 
-    blog_os::init(); // new
+    for (key, value) in vec {
+        hm.insert(key, value);
+    }
+    return hm;
+}
 
-    // invoke a breakpoint exception
-    x86_64::instructions::interrupts::int3(); // new
+fn main(){
+    let input_vec =vec![(String::from("harkirat"), 22), (String::from("raman"), 32)];
 
-    // as before
-    #[cfg(test)]
-    test_main();
+    let hm = group_values_by_key(input_vec);
 
-    println!("It did not crash!");
-    loop {}
+    println!("{:?}", hm);
 }
